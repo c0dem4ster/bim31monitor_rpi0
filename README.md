@@ -42,7 +42,7 @@ options fbtft_device name=fb_ili9341 gpios=reset:25,dc:24,led:18 speed=16000000 
 ```
 To run the program at boot-time, add the following line to `/etc/rc.local` before the `exit` statement:
 ```
-python3 <absolute source path>/loader.py
+nohup python3 <absolute source path>/loader.py &
 ```
 ### Finish
 Finally, reboot the Pi:
