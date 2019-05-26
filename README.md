@@ -1,7 +1,22 @@
 # Tramway Display
 ## Description
 Downloads and displays the departure times of the next 3 trams.
-## Setup
+## Hardware Setup
+```
+ILI9341    Raspberry Pi
+━━━━━━━━┓ ┏━━━━━━━━━━━━
+    LED ┃━┃ 12 (GPIO 18)
+    SCK ┃━┃ 23 (GPIO 11)
+   MISO ┃━┃ 21 (GPIO 9)
+   MOSI ┃━┃ 19 (GPIO 10)
+     CS ┃━┃ 24 (GPIO 8)
+    RST ┃━┃ 22 (GPIO 25)
+     DC ┃━┃ 18 (GPIO 24)
+    VIN ┃━┃ 17 (3V3)
+    GND ┃━┃ 20 (GND)
+━━━━━━━━┛ ┗━━━━━━━━━━━━
+```
+## Software Configuration
 ### Build
 Download the sources to your Raspberry Pi:
 ```
@@ -34,25 +49,3 @@ Finally, reboot the Pi:
 ```
 sudo reboot
 ```
-
-## Integration
-To use it with your own projects, you will need to add the following lines to your design file(s):
-```vhdl
--- allows us to use BCD_TYPE
-library work;
-use work.typedef.all;
-```
-In the architecture head add:
-```vhdl
-component bin2bcd
-  -- set bandwidth of conversion here
-  generic(bin_width: integer := 32;
-          dec_width: integer := 5);
-  port(RESET_n: in std_logic;
-        CLK    : in std_logic;
-        BIN    : in std_logic_vector;
-        BCD    : out BCD_TYPE;
-        FIN    : out	std_logic);
-end component;
-```
-And don't forget the port map in the architecture body!
