@@ -7,8 +7,6 @@
 #           display
 #
 
-#!/usr/bin/python3
-
 import json
 from time import sleep
 from urllib import request
