@@ -1,0 +1,3 @@
+[submodule "embedded-library"]
+	path = embedded-library
+	url = https://github.com/c0dem4ster/embedded-library.git
