@@ -14,25 +14,27 @@
 
 #include "main.h"
 
-#include "lib/gfx/gfx.h"
+#include "embedded-library/gfx/gfx.h"
+#include "embedded-library/util/util.h"
 
-#include "lib/img/background.h"
-#include "lib/img/rssi.h"
-#include "lib/img/tram.h"
-#include "lib/img/ulf.h"
+#include "img/background.h"
+#include "img/rssi.h"
+#include "img/tram.h"
+#include "img/ulf.h"
 
-uint16_t to_bgr(uint8_t r, uint8_t g, uint8_t b)
+void set_pixel(uint16_t x, uint16_t y, uint8_t c[3])
 {
-  return (r & 0xf8) << 8 |
-         (g & 0xfc) << 3 |
-         (b & 0xf8) >> 3;
+  framebuffer[y * DISP_WIDTH + x] = (c[0] & 0xf8) << 8 |
+                                    (c[1] & 0xfc) << 3 |
+                                    (c[2] & 0xf8) >> 3;
 }
 
-void from_bgr(uint16_t bgr, uint8_t* rgb)
+void get_pixel(uint16_t x, uint16_t y, uint8_t c[3])
 {
-  rgb[0] = (bgr >> 8) & 0xf8;
-  rgb[1] = (bgr >> 3) & 0xfc;
-  rgb[2] = (bgr << 3) & 0xf8;
+  uint16_t bgr = framebuffer[y * DISP_WIDTH + x];
+  c[0] = (bgr >> 8) & 0xf8;
+  c[1] = (bgr >> 3) & 0xfc;
+  c[2] = (bgr << 3) & 0xf8;
 }
 
 void get_data(uint8_t* countdowns, uint8_t* ulfs)
@@ -56,6 +58,8 @@ int main()
 
   // file descriptor for framebuffer
   int fd;
+  
+  gfx_init(&set_pixel, &get_pixel);
 
   // read received data from file
   get_data(countdowns, ulfs);

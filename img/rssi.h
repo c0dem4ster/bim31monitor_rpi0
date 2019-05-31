@@ -3,8 +3,7 @@
 static unsigned int rssi_width = 40;
 static unsigned int rssi_height = 28;
 
-static char *rssi[] =
-{
+static char *rssi[] = {
 	"YA!!YA!!YA!!YA!!YA!!YA!!YA!!YA!!YA!!YA!!YA!!YA!!YA!!YA!!YA!!YA!!"
 	"YA!!YA!!YA!!YA!!YA!!YA!!YA!!YA!!YA!!YA!!YA!!YA!!YA!!YA!!YA!!YA!!"
 	"YA!!YA!!YA!!YA!!YA!!YA!!YA!!YA!!YA!!YA!!YA!!YA!!YA!!YA!!YA!!YA!!"
