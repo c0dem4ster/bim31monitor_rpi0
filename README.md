@@ -35,15 +35,24 @@ Open up the Raspbian configuration dialog:
 ```
 sudo raspi-config
 ```
-Then enable `Interfacing Options > SPI` and disable `Advanced Options > Overscan`.  
+Then enable `Interfacing Options > SPI` and disable `Advanced Options > Overscan`.
+
 To enable the display device drivers, create the file `/etc/modprobe.d/fbtft.conf` with the following content:
 ```
 options fbtft_device name=fb_ili9341 gpios=reset:25,dc:24,led:18 speed=16000000 bgr=1 rotate=90 custom=1
 ```
+
+and the file `/etc/modules-load.d/fbtft.conf`, containing:
+```
+spi-bcm2835
+fbtft_device
+```
+
 To run the program at boot-time, add the following line to `/etc/rc.local` before the `exit` statement:
 ```
 nohup python3 <absolute source path>/loader.py &
 ```
+
 ### Finish
 Finally, reboot the Pi:
 ```
