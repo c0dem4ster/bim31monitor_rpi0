@@ -20,7 +20,7 @@ ILI9341    Raspberry Pi
 ### Build
 Download the sources to your Raspberry Pi:
 ```
-git clone https://github.com/c0dem4ster/bim31monitor_rpi0.git
+git clone --recursive https://github.com/c0dem4ster/bim31monitor_rpi0.git
 ```
 Enter the source directory:
 ```
@@ -28,7 +28,7 @@ cd bim31monitor_rpi0
 ```
 Build the binaries:
 ```
-gcc -lm main.c lib/gfx/gfx.c
+make
 ```
 ### Configure
 Open up the Raspbian configuration dialog:
