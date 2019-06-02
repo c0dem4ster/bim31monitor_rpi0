@@ -42,6 +42,10 @@ void get_data(uint8_t* countdowns, uint8_t* ulfs)
   char* line = malloc(10);
   FILE* fp = fopen("data", "r");
 
+  if(fp == NULL)
+    printf("no data file found!\n");
+    return;
+
   for(int i = 0; i < 3; i++)
   {
     fgets(line, 9, fp);

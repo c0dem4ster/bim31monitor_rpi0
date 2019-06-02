@@ -35,9 +35,9 @@ def main():
         else line_barrierfree) + '\n')
   
   # print tram positions to screen
-  run(['/home/pi/bim_monitor/a.out'])
+  run(['/home/pi/bim31monitor_rpi0/a.out'])
 
 if __name__ == '__main__':
   while True:
     main()
-    sleep(0.5)
+    sleep(2)
