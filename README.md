@@ -20,6 +20,7 @@ ILI9341    Raspberry Pi
 ### Build
 Download the sources to your Raspberry Pi:
 ```
+cd /home/pi
 git clone --recursive https://github.com/c0dem4ster/bim31monitor_rpi0.git
 ```
 Enter the source directory:
@@ -50,7 +51,7 @@ fbtft_device
 
 To run the program at boot-time, add the following line to `/etc/rc.local` before the `exit` statement:
 ```
-nohup python3 <absolute source path>/loader.py &
+nohup python3 /home/pi/bim31monitor_rpi0/loader.py &
 ```
 
 ### Finish
