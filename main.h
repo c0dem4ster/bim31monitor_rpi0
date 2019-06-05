@@ -8,7 +8,7 @@
 
 #include <stdint.h>
 
-#define FB_DEVICE "/dev/fb0"
+#define FB_DEVICE "/dev/fb1"
 
 uint16_t* framebuffer;
 
