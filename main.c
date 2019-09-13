@@ -43,8 +43,10 @@ void get_data(uint8_t* countdowns, uint8_t* ulfs)
   FILE* fp = fopen("data", "r");
 
   if(fp == NULL)
+  {
     printf("no data file found!\n");
     return;
+  }
 
   for(int i = 0; i < 3; i++)
   {
@@ -62,7 +64,7 @@ int main()
 
   // file descriptor for framebuffer
   int fd;
-  
+
   gfx_init(&set_pixel, &get_pixel);
 
   // read received data from file

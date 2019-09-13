@@ -12,7 +12,8 @@ from time import sleep
 from urllib import request
 from subprocess import Popen, PIPE
 
-url = 'http://wienerlinien.at/ogd_realtime/monitor?rbl=2167&sender=k34RXngkrRDzfT2x'
+url = 'http://wienerlinien.at/ogd_realtime/monitor?rbl=2167&sender=T3bvytrlebIJABzK'
+
 bin = '/home/pi/bim31monitor_rpi0/a.out'
 
 # utility for running other programs
@@ -60,4 +61,5 @@ def main():
 if __name__ == '__main__':
   while True:
     main()
-    sleep(2)
+    sleep(6)
+
