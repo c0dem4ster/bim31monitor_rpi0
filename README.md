@@ -19,21 +19,20 @@ ILI9341    Raspberry Pi
 ## Software Configuration
 ### Build
 Download the sources to your Raspberry Pi:
-```
-cd /home/pi
+```bash
 git clone --recursive https://github.com/c0dem4ster/bim31monitor_rpi0.git
 ```
 Enter the source directory:
-```
+```bash
 cd bim31monitor_rpi0
 ```
 Build the binaries:
-```
+```bash
 make
 ```
 ### Configure
 Open up the Raspbian configuration dialog:
-```
+```bash
 sudo raspi-config
 ```
 Then enable `Interfacing Options > SPI` and disable `Advanced Options > Overscan`.
@@ -50,12 +49,13 @@ fbtft_device
 ```
 
 To run the program at boot-time, add the following line to `/etc/rc.local` before the `exit` statement:
-```
-nohup python3 /home/pi/bim31monitor_rpi0/loader.py &
+```bash
+nohup python3 <path of cloned repo>/bim31monitor_rpi0/loader.py &
+con2fbmap 1 0
 ```
 
 ### Finish
 Finally, reboot the Pi:
-```
+```bash
 sudo reboot
 ```

@@ -7,6 +7,7 @@
 #           display
 #
 
+import os
 import json
 from time import sleep
 from urllib import request
@@ -14,7 +15,7 @@ from subprocess import Popen, PIPE
 
 url = 'http://wienerlinien.at/ogd_realtime/monitor?rbl=2167&sender=T3bvytrlebIJABzK'
 
-bin = '/home/pi/bim31monitor_rpi0/a.out'
+bin = os.path.dirname(os.path.realpath(__file__)) + '/a.out'
 
 # utility for running other programs
 def run(args):
